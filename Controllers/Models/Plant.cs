@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace IoTVault.Models
+namespace Controllers.Models
 {
     public class Plant
     {

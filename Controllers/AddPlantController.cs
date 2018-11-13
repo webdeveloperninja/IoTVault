@@ -1,10 +1,8 @@
-﻿using IoTVault.Models;
-using Newtonsoft.Json;
+﻿using Controllers.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using Newtonsoft.Json;
 
-namespace IoTVault.Controllers
+namespace Controllers
 {
     public class AddPlantController
     {
