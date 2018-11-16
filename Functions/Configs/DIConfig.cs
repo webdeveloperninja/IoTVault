@@ -1,4 +1,4 @@
-﻿namespace Frameworks.Configs
+﻿namespace Functions.Configs
 {
     using Autofac;
     using AutoMapper;

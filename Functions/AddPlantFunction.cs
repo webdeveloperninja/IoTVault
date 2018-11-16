@@ -1,9 +1,9 @@
-namespace IoTVault
+namespace Functions
 {
     using AutoMapper;
     using AzureFunctions.Autofac;
     using Controllers;
-    using Frameworks.Configs;
+    using Functions.Configs;
     using MediatR;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Extensions.Logging;
