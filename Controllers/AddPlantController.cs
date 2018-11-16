@@ -1,15 +1,12 @@
 ﻿using Controllers.Models;
-using System;
-using Newtonsoft.Json;
-using AzureFunctions.Autofac;
-using MediatR;
-using Core.Commands;
-using AutoMapper;
-using Microsoft.Azure.WebJobs;
-using Infrastructure;
-
 namespace Controllers
 {
+    using AutoMapper;
+    using Core.Commands;
+    using Infrastructure;
+    using MediatR;
+    using Newtonsoft.Json;
+
     public class AddPlantController
     {
         private readonly IMediator _mediator;

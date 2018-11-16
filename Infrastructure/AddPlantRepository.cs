@@ -1,11 +1,10 @@
-﻿using Core.Interfaces;
-using Core.Models;
-using Microsoft.Azure.WebJobs;
-using System;
-using System.Threading.Tasks;
-
-namespace Infrastructure
+﻿namespace Infrastructure
 {
+    using Core.Interfaces;
+    using Core.Models;
+    using Microsoft.Azure.WebJobs;
+    using System.Threading.Tasks;
+
     public class AddPlantRepository : IRepository
     {
         private readonly IAsyncCollector<Plant> _plants;
@@ -18,11 +17,6 @@ namespace Infrastructure
         public Task Add(Plant plant)
         {
             return _plants.AddAsync(plant);
-        }
-
-        public void Execute(Plant plant)
-        {
-            _plants.AddAsync(plant);
         }
     }
 }
