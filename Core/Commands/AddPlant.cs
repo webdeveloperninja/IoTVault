@@ -1,20 +1,24 @@
-﻿using Core.Models;
-using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Core.Commands
+﻿namespace Core.Commands
 {
+    using Core.Interfaces;
+    using Core.Models;
+    using MediatR;
+    using System.Threading;
+    using System.Threading.Tasks;
+
     public class AddPlant : IRequest<Plant>
     {
         public Plant Plant;
+        public IRepository Repository;
     }
 
     public class AddPlantHandler : IRequestHandler<AddPlant, Plant>
     {
-        public Task<Plant> Handle(AddPlant request, CancellationToken cancellationToken)
+        public async Task<Plant> Handle(AddPlant request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(new Plant());
+            await request.Repository.Add(request.Plant);
+
+            return request.Plant;
         }
     }
 }

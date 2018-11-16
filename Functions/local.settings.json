@@ -2,6 +2,7 @@
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "EventHubPlantDetailsConnection": "Endpoint=sb://vault-plant.servicebus.windows.net/;SharedAccessKeyName=plant-details;SharedAccessKey=sA7GlHeKXKAsBscEn384upJsxuJ2tvO0diW5yQ1JKJc=;EntityPath=plant"
+    "EventHubPlantDetailsConnection": "Endpoint=sb://vault-plant.servicebus.windows.net/;SharedAccessKeyName=plant-details;SharedAccessKey=sA7GlHeKXKAsBscEn384upJsxuJ2tvO0diW5yQ1JKJc=;EntityPath=plant",
+    "CosmosDBConnection": "AccountEndpoint=https://iotvault.documents.azure.com:443/;AccountKey=UUpovnCVkYxl1IX2kumx8AeQL9Tk3xMlo3OHOT8vE3IRL0Qwz2TUO2qIMcfWWDfDuEo5kXDw9PTvjqBsWwUs1A==;"
   }
 }
