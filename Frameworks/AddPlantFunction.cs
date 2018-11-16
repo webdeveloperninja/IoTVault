@@ -1,16 +1,20 @@
-using Controllers;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Extensions.Logging;
-
 namespace IoTVault
 {
+    using AutoMapper;
+    using AzureFunctions.Autofac;
+    using Controllers;
+    using Frameworks.Configs;
+    using MediatR;
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Extensions.Logging;
+
+    [DependencyInjectionConfig(typeof(DIConfig))]
     public static class AddPlantFunction
     {
         [FunctionName("AddPlant")]
-        public static void Run([EventHubTrigger("plant", Connection = "EventHubPlantDetailsConnection")]string newPlantMessage, ILogger log)
+        public static void Run([EventHubTrigger("plant", Connection = "EventHubPlantDetailsConnection")]string newPlantMessage, ILogger log, [Inject] IMediator mediator, [Inject] IMapper mapper)
         {
-            var controller = new AddPlantController(newPlantMessage);
+            var controller = new AddPlantController(newPlantMessage, mediator, mapper);
 
             controller.Execute();
         }

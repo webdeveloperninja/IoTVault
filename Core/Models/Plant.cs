@@ -1,4 +1,4 @@
-﻿namespace Controllers.Models
+﻿namespace Core.Models
 {
     public class Plant
     {
