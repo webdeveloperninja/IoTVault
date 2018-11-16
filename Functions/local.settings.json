@@ -1,0 +1,8 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "EventHubPlantDetailsConnection": "Endpoint=sb://vault-plant.servicebus.windows.net/;SharedAccessKeyName=plant-details;SharedAccessKey=sA7GlHeKXKAsBscEn384upJsxuJ2tvO0diW5yQ1JKJc=;EntityPath=plant"
+  }
+}
