@@ -1,11 +1,8 @@
-﻿using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-
-namespace Controllers.Resolvers
+﻿namespace Controllers.Resolvers
 {
+    using Newtonsoft.Json.Serialization;
+    using System.Text.RegularExpressions;
+
     public class UnderscorePropertyNames : DefaultContractResolver
     {
         public UnderscorePropertyNames() : base()

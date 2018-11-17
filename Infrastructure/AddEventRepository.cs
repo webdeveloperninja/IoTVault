@@ -1,14 +1,10 @@
-﻿using Core;
-using Core.Interfaces;
-using Core.Models;
-using Microsoft.Azure.Documents.Client;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Infrastructure
+﻿namespace Infrastructure
 {
+    using Core;
+    using Core.Interfaces;
+    using Microsoft.Azure.Documents.Client;
+    using System.Threading.Tasks;
+
     public class AddEventRepository : IRepository
     {
         private readonly DocumentClient _documentClient;

@@ -1,11 +1,8 @@
 ﻿namespace Infrastructure
 {
-    using AzureFunctions.Autofac;
     using Core;
     using Core.Interfaces;
-    using Core.Models;
     using Microsoft.Azure.Documents.Client;
-    using Microsoft.Azure.WebJobs;
     using System.Threading.Tasks;
 
     public class AddPlantRepository : IRepository

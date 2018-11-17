@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Controllers.Models
+﻿namespace Controllers.Models
 {
     public class IoTEventDTO
     {

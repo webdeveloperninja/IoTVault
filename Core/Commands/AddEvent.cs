@@ -1,14 +1,11 @@
-﻿using Core.Interfaces;
-using Core.Models;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Core.Commands
+﻿namespace Core.Commands
 {
+    using Core.Interfaces;
+    using Core.Models;
+    using MediatR;
+    using System.Threading;
+    using System.Threading.Tasks;
+
     public class AddEvent : IRequest<IoTEvent>
     {
         public IoTEvent IoTEvent;

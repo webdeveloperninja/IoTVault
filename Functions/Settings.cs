@@ -1,10 +1,8 @@
-﻿using Core;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Functions
+﻿namespace Functions
 {
+    using Core;
+    using System;
+
     public class Settings : ISettings
     {
         public string DatabaseName { get => Environment.GetEnvironmentVariable("DatabaseName"); }

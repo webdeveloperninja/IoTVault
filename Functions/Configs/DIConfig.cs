@@ -6,8 +6,6 @@
     using Controllers.Profiles;
     using Core;
     using Core.Commands;
-    using Core.Interfaces;
-    using Infrastructure;
     using MediatR;
     using Microsoft.Azure.Documents.Client;
     using System;
