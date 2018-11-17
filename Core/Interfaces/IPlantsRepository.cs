@@ -8,6 +8,6 @@
     {
         Task Add(Plant plant);
 
-        Task<Plant> SelectByDeviceId(string deviceId);
+        Plant SelectByDeviceId(string deviceId);
     }
 }

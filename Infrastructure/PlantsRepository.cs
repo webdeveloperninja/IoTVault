@@ -29,7 +29,7 @@
             return _documentClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(_databaseName, _collectionName), plant);
         }
 
-        public async Task<Plant> SelectByDeviceId(string deviceId)
+        public Plant SelectByDeviceId(string deviceId)
         {
             var collectionUri = UriFactory.CreateDocumentCollectionUri(_databaseName, _collectionName);
 

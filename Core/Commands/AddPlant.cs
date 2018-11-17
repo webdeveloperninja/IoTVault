@@ -16,7 +16,7 @@
     {
         public async Task<Plant> Handle(AddPlant request, CancellationToken cancellationToken)
         {
-            var document = await request.Repository.SelectByDeviceId(request.Plant.DeviceId);
+            var document = request.Repository.SelectByDeviceId(request.Plant.DeviceId);
 
             await request.Repository.Add(request.Plant);
 
