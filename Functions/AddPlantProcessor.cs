@@ -4,14 +4,12 @@ namespace Functions
     using AzureFunctions.Autofac;
     using Controllers;
     using Core;
-    using Core.Models;
     using Functions.Configs;
     using Infrastructure;
     using MediatR;
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Extensions.Logging;
-    using System;
 
     [DependencyInjectionConfig(typeof(DIConfig))]
     public static class AddPlantProcessor

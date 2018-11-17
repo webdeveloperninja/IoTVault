@@ -11,11 +11,13 @@
     {
         private readonly string _message;
         private readonly ILogger _log;
+        private readonly IMapper _mapper;
 
-        public SoilMoistureController(string message, ILogger log)
+        public SoilMoistureController(string message, ILogger log, IMapper mapper)
         {
             _message = message;
             _log = log;
+            _mapper = mapper;
         }
 
         public void Execute()
@@ -38,7 +40,7 @@
                 MoistureVoltage = voltage,
                 DeviceId = iotDeviceEvent.DeviceId,
                 Event = iotDeviceEvent.Event,
-                PublishedAt = Mapper.Map<DateTime>(iotDeviceEvent.PublishedAt)
+                PublishedAt = _mapper.Map<DateTime>(iotDeviceEvent.PublishedAt)
             };
         }
     }

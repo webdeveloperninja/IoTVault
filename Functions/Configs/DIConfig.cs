@@ -75,13 +75,13 @@
         private void RegisterAutoMapper(ContainerBuilder builder)
         {
             builder.RegisterAssemblyTypes().AssignableTo(typeof(PlantProfile));
+            builder.RegisterAssemblyTypes().AssignableTo(typeof(DateTimeProfile));
 
             builder.Register(c => new MapperConfiguration(cfg =>
             {
                 foreach (var profile in c.Resolve<IEnumerable<Profile>>())
                 {
                     cfg.AddProfile(profile);
-                    cfg.CreateMap<string, DateTime>().ConvertUsing(Convert.ToDateTime);
                 }
             })).AsSelf().SingleInstance();
 
