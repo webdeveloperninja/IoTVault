@@ -2,6 +2,7 @@
 namespace Controllers
 {
     using AutoMapper;
+    using AzureFunctions.Autofac;
     using Core.Commands;
     using Infrastructure;
     using MediatR;

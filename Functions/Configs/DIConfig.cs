@@ -4,8 +4,13 @@
     using AutoMapper;
     using AzureFunctions.Autofac.Configuration;
     using Controllers.Profiles;
+    using Core;
     using Core.Commands;
+    using Core.Interfaces;
+    using Infrastructure;
     using MediatR;
+    using Microsoft.Azure.Documents.Client;
+    using System;
     using System.Collections.Generic;
     using System.Reflection;
 
@@ -17,9 +22,38 @@
             {
 
                 RegisterMediatR(builder);
+
                 RegisterAutoMapper(builder);
 
+                RegisterCosmosDb(builder);
+
+                RegisterSettings(builder);
+
             }, functionName);
+        }
+
+        private void RegisterSettings(ContainerBuilder builder)
+        {
+            var settings = new Settings();
+     
+            builder.RegisterInstance<ISettings>(settings);
+        }
+
+        private void RegisterCosmosDb(ContainerBuilder builder)
+        {
+            var cosmosEndpoint = Environment.GetEnvironmentVariable("CosmosEndpoint");
+            var cosmosAuthorizationKey = Environment.GetEnvironmentVariable("CosmosAuthorizationKey");
+            var documentClient = new DocumentClient(new Uri(cosmosEndpoint), cosmosAuthorizationKey, new ConnectionPolicy()
+            {
+                RequestTimeout = new TimeSpan(0, 0, 30),
+                RetryOptions = new RetryOptions()
+                {
+                    MaxRetryAttemptsOnThrottledRequests = 3,
+                    MaxRetryWaitTimeInSeconds = 60
+                }
+            });
+
+            builder.RegisterInstance(documentClient);
         }
 
         private void RegisterMediatR(ContainerBuilder builder)
