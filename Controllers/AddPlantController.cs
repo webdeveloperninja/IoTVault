@@ -1,8 +1,7 @@
-﻿using Controllers.Models;
-namespace Controllers
+﻿namespace Controllers
 {
     using AutoMapper;
-    using AzureFunctions.Autofac;
+    using Controllers.Models;
     using Core.Commands;
     using Infrastructure;
     using MediatR;

@@ -9,6 +9,8 @@
     <PackageReference Include="AzureFunctions.Autofac" Version="3.0.6" />
     <PackageReference Include="MediatR" Version="5.1.0" />
     <PackageReference Include="MediatR.Extensions.AutofacBuilder" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.2" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.ServiceBus" Version="2.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 

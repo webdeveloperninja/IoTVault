@@ -81,6 +81,7 @@
                 foreach (var profile in c.Resolve<IEnumerable<Profile>>())
                 {
                     cfg.AddProfile(profile);
+                    cfg.CreateMap<string, DateTime>().ConvertUsing(Convert.ToDateTime);
                 }
             })).AsSelf().SingleInstance();
 

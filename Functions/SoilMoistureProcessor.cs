@@ -1,20 +1,27 @@
-﻿using IoTHubTrigger = Microsoft.Azure.WebJobs.EventHubTriggerAttribute;
-
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Azure.EventHubs;
-using System.Text;
-using System.Net.Http;
-using Microsoft.Extensions.Logging;
-
-namespace Functions
+﻿namespace Functions
 {
+    using AutoMapper;
+    using Controllers;
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.ServiceBus.Messaging;
+    using System;
+    using System.Text;
+    using IoTHubTrigger = Microsoft.Azure.WebJobs.EventHubTriggerAttribute;
+
     public static class SoilMoistureProcessor
     {
-        [FunctionName("SoilMoistureProcessor")]
-        public static void Run([IoTHubTrigger("messages/events", Connection = "IoTHubConnection")]EventData message, ILogger log)
+        static SoilMoistureProcessor()
         {
-            log.LogInformation($"C# IoT Hub trigger function processed a message: {Encoding.UTF8.GetString(message.Body.Array)}");
+            Mapper.Initialize(cfg => cfg.CreateMap<string, DateTime>().ConvertUsing(Convert.ToDateTime));
+        }
+
+        [FunctionName("SoilMoistureProcessor")]
+        public static void Run([IoTHubTrigger("messages/events", Connection = "IoTHubConnection")]string message, ILogger log)
+        {
+            var controller = new SoilMoistureController(message, log);
+
+            controller.Execute();
         }
     }
 }
