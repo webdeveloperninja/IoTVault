@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Controllers.Models
+namespace Core.Models
 {
     public class IoTEvent
     {

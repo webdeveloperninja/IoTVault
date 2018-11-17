@@ -3,6 +3,10 @@
     using AutoMapper;
     using Controllers.Models;
     using Controllers.Resolvers;
+    using Core.Commands;
+    using Core.Interfaces;
+    using Core.Models;
+    using MediatR;
     using Microsoft.Extensions.Logging;
     using Newtonsoft.Json;
     using System;
@@ -12,17 +16,29 @@
         private readonly string _message;
         private readonly ILogger _log;
         private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
+        private readonly IRepository _repository;
 
-        public SoilMoistureController(string message, ILogger log, IMapper mapper)
+        public SoilMoistureController(string message, ILogger log, IMapper mapper, IMediator mediator, IRepository repository)
         {
             _message = message;
             _log = log;
             _mapper = mapper;
+            _mediator = mediator;
+            _repository = repository;
         }
 
         public void Execute()
         {
             var ioTEvent = GetEvent();
+
+            var addIoTEventQuery = new AddEvent
+            {
+                IoTEvent = ioTEvent,
+                Repository = _repository
+            };
+
+            _mediator.Send(addIoTEventQuery);
         }
 
         private IoTEvent GetEvent()

@@ -20,10 +20,10 @@
         {
             _documentClient = documentClient;
             _databaseName = settings.DatabaseName;
-            _collectionName = settings.CollectionName;
+            _collectionName = settings.PlantCollectionName;
         }
 
-        public Task Add(Plant plant)
+        public Task Add<Plant>(Plant plant)
         {
             return _documentClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(_databaseName, _collectionName), plant);
         }

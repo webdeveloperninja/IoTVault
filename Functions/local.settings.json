@@ -9,7 +9,8 @@
     "CosmosEndpoint": "https://iotvault.documents.azure.com:443/",
     "CosmosAuthorizationKey": "GqKjpDpqMUwplx2XRb50KlJuMOHbrr9YDIwFXbpuyDWrLiGEwzFtXFgo939DvFZcDQRPK3PF9Y6uVlvGCDIGBA==",
     "DatabaseName": "IoT",
-    "CollectionName": "Plants",
+    "PlantsCollectionName": "Plants",
+    "EventsCollectionName": "Events",
     "IoTHubConnection": "Endpoint=sb://ihsuprodblres066dednamespace.servicebus.windows.net/;SharedAccessKeyName=particle;SharedAccessKey=An06FH8rb9ygOBOtDa8yHLWu6AeOrJMG4p6I9QzsMWE=;EntityPath=iothub-ehub-particle11-902550-135b407737"
   }
 }

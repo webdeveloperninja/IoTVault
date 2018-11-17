@@ -8,6 +8,8 @@ namespace Core
     {
         string DatabaseName { get; }
 
-        string CollectionName { get; }
+        string PlantCollectionName { get; }
+
+        string EventCollectionName { get; }
     }
 }

@@ -5,6 +5,6 @@ namespace Core.Interfaces
 {
     public interface IRepository
     {
-        Task Add(Plant plant);
+        Task Add<T>(T plant);
     }
 }

@@ -9,6 +9,8 @@ namespace Functions
     {
         public string DatabaseName { get => Environment.GetEnvironmentVariable("DatabaseName"); }
 
-        public string CollectionName { get => Environment.GetEnvironmentVariable("CollectionName"); }
+        public string PlantCollectionName { get => Environment.GetEnvironmentVariable("PlantsCollectionName"); }
+
+        public string EventCollectionName { get => Environment.GetEnvironmentVariable("EventsCollectionName"); }
     }
 }
