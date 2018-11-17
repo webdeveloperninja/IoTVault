@@ -9,7 +9,7 @@
     public class AddEvent : IRequest<IoTEvent>
     {
         public IoTEvent IoTEvent;
-        public IRepository Repository;
+        public IEventsRepository Repository;
     }
 
     public class AddEventHandler : IRequestHandler<AddEvent, IoTEvent>

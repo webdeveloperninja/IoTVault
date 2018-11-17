@@ -17,9 +17,9 @@
         private readonly ILogger _log;
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
-        private readonly IRepository _repository;
+        private readonly IEventsRepository _repository;
 
-        public SoilMoistureController(string message, ILogger log, IMapper mapper, IMediator mediator, IRepository repository)
+        public SoilMoistureController(string message, ILogger log, IMapper mapper, IMediator mediator, IEventsRepository repository)
         {
             _message = message;
             _log = log;

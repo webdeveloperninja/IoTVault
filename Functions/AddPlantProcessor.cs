@@ -18,7 +18,7 @@ namespace Functions
         public static async void Run([EventHubTrigger("plant", Connection = "EventHubPlantDetailsConnection")]string newPlantMessage, ILogger log, 
             [Inject] IMediator mediator, [Inject] IMapper mapper, [Inject] DocumentClient documentClient, [Inject] ISettings settings)
         {
-            var repository = new AddPlantRepository(documentClient, settings);
+            var repository = new PlantsRepository(documentClient, settings);
 
             var controller = new AddPlantController(newPlantMessage, mediator, mapper, repository);
 

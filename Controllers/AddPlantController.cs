@@ -11,11 +11,11 @@
     {
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
-        private readonly AddPlantRepository _addPlantRepository;
+        private readonly PlantsRepository _addPlantRepository;
 
         private string _plantMessage;
 
-        public AddPlantController(string plantMessage, IMediator mediator, IMapper mapper, AddPlantRepository repository)
+        public AddPlantController(string plantMessage, IMediator mediator, IMapper mapper, PlantsRepository repository)
         {
             _plantMessage = plantMessage;
             _mediator = mediator;
