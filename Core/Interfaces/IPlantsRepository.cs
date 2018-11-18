@@ -9,5 +9,7 @@
         Task Add(Plant plant);
 
         Plant SelectByDeviceId(string deviceId);
+
+        void DeletePlantByDeviceId(string deviceId);
     }
 }

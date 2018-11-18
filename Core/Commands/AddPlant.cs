@@ -30,7 +30,8 @@
 
             if (existingPlant != null)
             {
-                repository.SelectByDeviceId(deviceId);
+                repository.DeletePlantByDeviceId(deviceId);
+
                 DeleteExistingPlantsWithSameDeviceId(deviceId, repository);
             }
         }

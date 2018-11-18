@@ -27,13 +27,16 @@
         {
             var plant = TryDeserializePlant();
 
-            var addPlantQuery = new AddPlant
+            if (!string.IsNullOrEmpty(plant.DeviceId))
             {
-                Plant = _mapper.Map<Core.Models.Plant>(plant),
-                Repository = _addPlantRepository
-            };
+                var addPlantQuery = new AddPlant
+                {
+                    Plant = _mapper.Map<Core.Models.Plant>(plant),
+                    Repository = _addPlantRepository
+                };
 
-            await _mediator.Send(addPlantQuery);
+                await _mediator.Send(addPlantQuery);
+            }
         }
 
         private Plant TryDeserializePlant()
