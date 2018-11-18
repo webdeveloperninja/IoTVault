@@ -42,7 +42,7 @@
             return _documentClient.CreateDocumentQuery<Plant>(collectionUri, query).AsEnumerable().FirstOrDefault();
         }
 
-        private void DeletePlantByDeviceId(string deviceId)
+        public void DeletePlantByDeviceId(string deviceId)
         {
             var collectionUri = UriFactory.CreateDocumentCollectionUri(_databaseName, _collectionName);
 
@@ -55,7 +55,6 @@
             if (document != null)
             {
                 _documentClient.DeleteDocumentAsync(document.SelfLink);
-                DeletePlantByDeviceId(deviceId);
             }
         }
     }

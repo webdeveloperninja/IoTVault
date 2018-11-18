@@ -16,11 +16,23 @@
     {
         public async Task<Plant> Handle(AddPlant request, CancellationToken cancellationToken)
         {
-            var document = request.Repository.SelectByDeviceId(request.Plant.DeviceId);
+
+            DeleteExistingPlantsWithSameDeviceId(request.Plant.DeviceId, request.Repository);
 
             await request.Repository.Add(request.Plant);
 
             return request.Plant;
+        }
+
+        private void DeleteExistingPlantsWithSameDeviceId(string deviceId, IPlantsRepository repository)
+        {
+            var existingPlant = repository.SelectByDeviceId(deviceId);
+
+            if (existingPlant != null)
+            {
+                repository.SelectByDeviceId(deviceId);
+                DeleteExistingPlantsWithSameDeviceId(deviceId, repository);
+            }
         }
     }
 }
