@@ -19,9 +19,10 @@
         public static void Run([IoTHubTrigger("messages/events", Connection = "IoTHubConnection")]string message, ILogger log, 
             [Inject] IMapper mapper, [Inject] IMediator mediator, [Inject] DocumentClient documentClient, [Inject] ISettings settings)
         {
-            var repository = new EventsRepository(documentClient, settings);
+            var eventsRepository = new EventsRepository(documentClient, settings);
+            var plantsRepository = new PlantsRepository(documentClient, settings);
 
-            var controller = new SoilMoistureController(message, log, mapper, mediator, repository);
+            var controller = new SoilMoistureController(message, log, mapper, mediator, eventsRepository, plantsRepository);
 
             controller.Execute();
         }

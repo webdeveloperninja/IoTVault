@@ -5,6 +5,6 @@
 
     public interface IEventsRepository
     {
-        Task Add(IoTEvent deviceEvent);
+        Task Add(PlantEvent deviceEvent);
     }
 }

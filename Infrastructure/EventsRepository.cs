@@ -21,7 +21,7 @@
             _collectionName = settings.EventCollectionName;
         }
 
-        public Task Add(IoTEvent ioTEvent)
+        public Task Add(PlantEvent ioTEvent)
         {
             return _documentClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(_databaseName, _collectionName), ioTEvent);
         }

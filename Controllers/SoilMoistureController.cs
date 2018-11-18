@@ -14,18 +14,25 @@
     public class SoilMoistureController
     {
         private readonly string _message;
-        private readonly ILogger _log;
-        private readonly IMapper _mapper;
-        private readonly IMediator _mediator;
-        private readonly IEventsRepository _repository;
 
-        public SoilMoistureController(string message, ILogger log, IMapper mapper, IMediator mediator, IEventsRepository repository)
+        private readonly ILogger _log;
+
+        private readonly IMapper _mapper;
+
+        private readonly IMediator _mediator;
+
+        private readonly IEventsRepository _eventsRepository;
+
+        private readonly IPlantsRepository _plantsRepository;
+
+        public SoilMoistureController(string message, ILogger log, IMapper mapper, IMediator mediator, IEventsRepository repository, IPlantsRepository plantsRepository)
         {
             _message = message;
             _log = log;
             _mapper = mapper;
             _mediator = mediator;
-            _repository = repository;
+            _eventsRepository = repository;
+            _plantsRepository = plantsRepository;
         }
 
         public void Execute()
@@ -35,7 +42,8 @@
             var addIoTEventQuery = new AddEvent
             {
                 IoTEvent = ioTEvent,
-                Repository = _repository
+                EventsRepository = _eventsRepository,
+                PlantsRepository = _plantsRepository
             };
 
             _mediator.Send(addIoTEventQuery);

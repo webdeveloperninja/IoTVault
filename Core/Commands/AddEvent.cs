@@ -9,14 +9,28 @@
     public class AddEvent : IRequest<IoTEvent>
     {
         public IoTEvent IoTEvent;
-        public IEventsRepository Repository;
+
+        public IEventsRepository EventsRepository;
+
+        public IPlantsRepository PlantsRepository;
     }
 
     public class AddEventHandler : IRequestHandler<AddEvent, IoTEvent>
     {
         public async Task<IoTEvent> Handle(AddEvent request, CancellationToken cancellationToken)
         {
-            await request.Repository.Add(request.IoTEvent);
+            var plant = request.PlantsRepository.SelectByDeviceId(request.IoTEvent.DeviceId);
+
+            if (plant != null)
+            {
+                var plantEvent = new PlantEvent
+                {
+                    Plant = plant,
+                    IoTEvent = request.IoTEvent
+                };
+
+                await request.EventsRepository.Add(plantEvent);
+            }
 
             return request.IoTEvent;
         }
