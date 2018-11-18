@@ -26,6 +26,8 @@
 
         public Task Add(Plant plant)
         {
+            DeletePlantByDeviceId(plant.DeviceId);
+
             return _documentClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(_databaseName, _collectionName), plant);
         }
 
@@ -38,6 +40,23 @@
                 new SqlParameterCollection(new SqlParameter[] { new SqlParameter { Name = "@deviceId", Value = deviceId } }));
 
             return _documentClient.CreateDocumentQuery<Plant>(collectionUri, query).AsEnumerable().FirstOrDefault();
+        }
+
+        private void DeletePlantByDeviceId(string deviceId)
+        {
+            var collectionUri = UriFactory.CreateDocumentCollectionUri(_databaseName, _collectionName);
+
+            var query = new SqlQuerySpec(
+                "SELECT * FROM Plants plant WHERE plant.DeviceId = @deviceId",
+                new SqlParameterCollection(new SqlParameter[] { new SqlParameter { Name = "@deviceId", Value = deviceId } }));
+
+            var document = _documentClient.CreateDocumentQuery<Document>(collectionUri, query).AsEnumerable().FirstOrDefault();
+
+            if (document != null)
+            {
+                _documentClient.DeleteDocumentAsync(document.SelfLink);
+                DeletePlantByDeviceId(deviceId);
+            }
         }
     }
 }
