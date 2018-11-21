@@ -7,5 +7,7 @@
         string PlantCollectionName { get; }
 
         string EventCollectionName { get; }
+
+        string DatabaseLink { get; }
     }
 }

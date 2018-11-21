@@ -10,5 +10,7 @@
         public string PlantCollectionName { get => Environment.GetEnvironmentVariable("PlantsCollectionName"); }
 
         public string EventCollectionName { get => Environment.GetEnvironmentVariable("EventsCollectionName"); }
+
+        public string DatabaseLink { get => Environment.GetEnvironmentVariable("DatabaseLink"); }
     }
 }
