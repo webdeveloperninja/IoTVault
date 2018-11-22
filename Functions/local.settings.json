@@ -14,5 +14,9 @@
     "EventsCollectionName": "Events",
     "IoTHubConnection": "Endpoint=sb://ihsuprodblres066dednamespace.servicebus.windows.net/;SharedAccessKeyName=particle;SharedAccessKey=An06FH8rb9ygOBOtDa8yHLWu6AeOrJMG4p6I9QzsMWE=;EntityPath=iothub-ehub-particle11-902550-135b407737",
     "DatabaseLink": "https://iotvault.documents.azure.com:443/"
+  },
+  "Host": {
+    "LocalHttpPort": 7071,
+    "CORS": "*"
   }
 }
