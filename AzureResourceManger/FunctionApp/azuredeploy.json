@@ -69,6 +69,11 @@
       "properties": {
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
+          "cors": {
+            "allowedOrigins": [
+              "http://localhost:4200"
+            ]
+          },
           "appSettings": [{
               "name": "AzureWebJobsDashboard",
               "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
@@ -100,110 +105,6 @@
           ]
         }
       }
-    },
-    {
-      "comments": "Generalized from resource: '/subscriptions//resourceGroups/fnctarm/providers/Microsoft.Web/sites/FunctionApp20180516120846/config/web'.",
-      "type": "Microsoft.Web/sites/config",
-      "name": "[variables('functionAppName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2016-08-01",
-      "tags": {
-        "hidden-related:/subscriptions//resourceGroups/fnctarm/providers/Microsoft.Web/serverfarms/fnctarm": "empty"
-      },
-      "scale": null,
-      "properties": {
-        "numberOfWorkers": 1,
-        "defaultDocuments": [],
-        "netFrameworkVersion": "v4.0",
-        "phpVersion": "5.6",
-        "pythonVersion": "",
-        "nodeVersion": "",
-        "linuxFxVersion": "",
-        "windowsFxVersion": null,
-        "requestTracingEnabled": false,
-        "remoteDebuggingEnabled": false,
-        "remoteDebuggingVersion": null,
-        "httpLoggingEnabled": false,
-        "logsDirectorySizeLimit": 35,
-        "detailedErrorLoggingEnabled": false,
-        "publishingUsername": "$FunctionApp20180516120846",
-        "publishingPassword": null,
-        "appSettings": null,
-        "metadata": null,
-        "connectionStrings": null,
-        "machineKey": null,
-        "handlerMappings": null,
-        "documentRoot": null,
-        "scmType": "None",
-        "use32BitWorkerProcess": true,
-        "webSocketsEnabled": false,
-        "alwaysOn": false,
-        "javaVersion": null,
-        "javaContainer": null,
-        "javaContainerVersion": null,
-        "appCommandLine": "",
-        "managedPipelineMode": "Integrated",
-        "virtualApplications": [],
-        "winAuthAdminState": 0,
-        "winAuthTenantState": 0,
-        "customAppPoolIdentityAdminState": false,
-        "customAppPoolIdentityTenantState": false,
-        "runtimeADUser": null,
-        "runtimeADUserPassword": null,
-        "loadBalancing": "LeastRequests",
-        "routingRules": [],
-        "experiments": {
-          "rampUpRules": []
-        },
-        "limits": null,
-        "autoHealEnabled": false,
-        "autoHealRules": null,
-        "tracingOptions": null,
-        "vnetName": "",
-        "siteAuthEnabled": false,
-        "siteAuthSettings": {
-          "enabled": null,
-          "unauthenticatedClientAction": null,
-          "tokenStoreEnabled": null,
-          "allowedExternalRedirectUrls": null,
-          "defaultProvider": null,
-          "clientId": null,
-          "clientSecret": null,
-          "issuer": null,
-          "allowedAudiences": null,
-          "additionalLoginParams": null,
-          "isAadAutoProvisioned": false,
-          "googleClientId": null,
-          "googleClientSecret": null,
-          "googleOAuthScopes": null,
-          "facebookAppId": null,
-          "facebookAppSecret": null,
-          "facebookOAuthScopes": null,
-          "twitterConsumerKey": null,
-          "twitterConsumerSecret": null,
-          "microsoftAccountClientId": null,
-          "microsoftAccountClientSecret": null,
-          "microsoftAccountOAuthScopes": null
-        },
-        "cors": {
-          "allowedOrigins": [
-            "http://localhost:4200"
-          ]
-        },
-        "push": null,
-        "apiDefinition": null,
-        "autoSwapSlotName": null,
-        "localMySqlEnabled": false,
-        "managedServiceIdentityId": null,
-        "xManagedServiceIdentityId": null,
-        "ipSecurityRestrictions": null,
-        "http20Enabled": false,
-        "minTlsVersion": "1.0",
-        "ftpsState": "AllAllowed"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
-      ]
     },
     {
       "apiVersion": "2018-05-01-preview",
