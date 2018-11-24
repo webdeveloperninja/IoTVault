@@ -202,7 +202,7 @@
         "ftpsState": "AllAllowed"
       },
       "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', parameters('sites_FunctionApp20180516120846_name'))]"
+        "[resourceId('Microsoft.Web/sites', [variables('functionAppName')])]"
       ]
     },
     {
