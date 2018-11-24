@@ -71,7 +71,8 @@
         "siteConfig": {
           "cors": {
             "allowedOrigins": [
-              "http://localhost:4200"
+              "http://localhost:4200",
+              "http://app.mygreenvault.com"
             ]
           },
           "appSettings": [{
