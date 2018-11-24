@@ -102,6 +102,42 @@
             {
               "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
               "value": "[reference(resourceId('microsoft.insights/components/', variables('applicationInsightsName')), '2015-05-01').InstrumentationKey]"
+            },
+            {
+              "name": "EventHubPlantDetailsConnection",
+              "value": "---"
+            },
+            {
+              "name": "CosmosDBConnection",
+              "value": "---"
+            },
+            {
+              "name": "CosmosEndpoint",
+              "value": "---"
+            },
+            {
+              "name": "CosmosAuthorizationKey",
+              "value": "---"
+            },
+            {
+              "name": "DatabaseName",
+              "value": "---"
+            },
+            {
+              "name": "PlantsCollectionName",
+              "value": "---"
+            },
+            {
+              "name": "EventsCollectionName",
+              "value": "---"
+            },
+            {
+              "name": "IoTHubConnection",
+              "value": "---"
+            },
+            {
+              "name": "DatabaseLink",
+              "value": "---"
             }
           ]
         }
