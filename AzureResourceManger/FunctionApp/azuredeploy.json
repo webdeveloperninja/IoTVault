@@ -26,6 +26,33 @@
       "metadata": {
         "description": "Location for all resources."
       }
+    },
+    "EventHubPlantDetailsConnection": {
+      "type": "string"
+    },
+    "CosmosDBConnection": {
+      "type": "string"
+    },
+    "CosmosEndpoint": {
+      "type": "string"
+    },
+    "CosmosAuthorizationKey": {
+      "type": "string"
+    },
+    "DatabaseName": {
+      "type": "string"
+    },
+    "PlantsCollectionName": {
+      "type": "string"
+    },
+    "EventsCollectionName": {
+      "type": "string"
+    },
+    "IoTHubConnection": {
+      "type": "string"
+    },
+    "DatabaseLink": {
+      "type": "string"
     }
   },
   "variables": {
@@ -105,39 +132,39 @@
             },
             {
               "name": "EventHubPlantDetailsConnection",
-              "value": "---"
+              "value": "[parameters('EventHubPlantDetailsConnection')]"
             },
             {
               "name": "CosmosDBConnection",
-              "value": "---"
+              "value": "[parameters('CosmosDBConnection')]"
             },
             {
               "name": "CosmosEndpoint",
-              "value": "---"
+              "value": "[parameters('CosmosEndpoint')]"
             },
             {
               "name": "CosmosAuthorizationKey",
-              "value": "---"
+              "value": "[parameters('CosmosAuthorizationKey')]"
             },
             {
               "name": "DatabaseName",
-              "value": "---"
+              "value": "[parameters('DatabaseName')]"
             },
             {
               "name": "PlantsCollectionName",
-              "value": "---"
+              "value": "[parameters('PlantsCollectionName')]"
             },
             {
               "name": "EventsCollectionName",
-              "value": "---"
+              "value": "[parameters('EventsCollectionName')]"
             },
             {
               "name": "IoTHubConnection",
-              "value": "---"
+              "value": "[parameters('IoTHubConnection')]"
             },
             {
               "name": "DatabaseLink",
-              "value": "---"
+              "value": "[parameters('DatabaseLink')]"
             }
           ]
         }
