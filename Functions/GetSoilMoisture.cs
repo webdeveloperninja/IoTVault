@@ -22,7 +22,7 @@
     {
         [FunctionName("GetSoilMoisture")]
         public static async Task<HttpResponseMessage> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, [Inject] DocumentClient documentClient, [Inject] ISettings settings)
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, [Inject] DocumentClient documentClient, [Inject] ISettings settings)
         {
             string plantId = req.GetQueryNameValuePairs()
                 .FirstOrDefault(q => string.Compare(q.Key, "plantId", true) == 0).Value;
